@@ -10,7 +10,7 @@
     outputs = inputs: {
         nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
             specialArgs = {
-                inputs;
+                inherit inputs;
             };
             modules = [
                 ./modules/conf.nix
