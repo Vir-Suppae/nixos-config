@@ -97,7 +97,7 @@
     isNormalUser = true;
     description = "Zeke Vandenberg";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [
+    packages = with pkgs; [
       brave
       fastfetch
       eza
