@@ -7,4 +7,3 @@ result-*
 
 # Ignore NixOS interactive test driver history
 **/.nixos-test-history
-hosts/
