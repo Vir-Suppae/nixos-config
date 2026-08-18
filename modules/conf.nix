@@ -4,25 +4,17 @@
   imports =
     [
       ../hosts/hardware-configuration.nix
-      (inputs.wrappers.lib.getInstallModule {
-        name = "wezterm";
-        value = inputs.wrappers.lib.wrapperModules.wezterm;
-      })
-      (inputs.wrappers.lib.getInstallModule {
-        name = "wrapped-git";
-        value = inputs.wrappers.lib.wrapperModules.git;
-      })
-      (inputs.wrappers.lib.getInstallModule {
-        name = "opencode";
-        value = inputs.wrappers.lib.wrapperModules.opencode;
-      })
+      (inputs.wrappers.lib.getInstallModule { name = "wezterm"; value = inputs.wrappers.lib.wrapperModules.wezterm; })
+      (inputs.wrappers.lib.getInstallModule { name = "wrapped-git"; value = inputs.wrappers.lib.wrapperModules.git; })
+      (inputs.wrappers.lib.getInstallModule { name = "opencode"; value = inputs.wrappers.lib.wrapperModules.opencode; })
     ];
 
-  wrappers.wezterm = {
-    enable = true;
-    "wezterm.lua".path = ./configs/wezterm.lua;
-  };
-  wrappers.wrapped-git = {
+  wrappers = {
+    wezterm = {
+      enable = true;
+      "wezterm.lua".path = ./configs/wezterm.lua;
+    };
+    wrapped-git = {
       enable = true;
       settings = {
         user.name = "Vir-Suppae";
@@ -30,26 +22,29 @@
         pull.rebase = true;
         init.defaultBranch = "main";
       };
+    };
+    opencode.enable = true;
   };
-  wrappers.opencode.enable = true;
 
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.luks.devices."luks-a53d4aa0-0e45-494b-836b-d316366431b7".device = "/dev/disk/by-uuid/a53d4aa0-0e45-494b-836b-d316366431b7";
+  };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  boot.initrd.luks.devices."luks-a53d4aa0-0e45-494b-836b-d316366431b7".device = "/dev/disk/by-uuid/a53d4aa0-0e45-494b-836b-d316366431b7";
-  networking.hostName = "nixos";
-
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "America/Chicago";
 
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -62,36 +57,34 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [ intel-media-driver ];
+  hardware = {
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [ intel-media-driver ];
+    };
+    bluetooth.enable = true;
   };
-  hardware.bluetooth.enable = true;
-
-  programs.labwc.enable = true;
-
-  services.logind.settings.Login.HandleLidSwitch = "ignore";
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-    options = "compose:caps";
+  
+  services = {
+    logind.settings.Login.HandleLidSwitch = "ignore";
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+      options = "compose:caps";
+    };
+    printing.enable = true;
+    tuned.enable = true;
+    upower.enable = true;
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
-  services.printing.enable = true;
-
-  services.tuned.enable = true;
-
-  services.upower.enable = true;
-
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users.users."vir-suppae" = {
     isNormalUser = true;
@@ -101,7 +94,6 @@
       brave
       fastfetch
       eza
-      wezterm
       ripgrep
       fd
       bat
@@ -129,8 +121,11 @@
       mako
       wev
       libxkbcommon
+      nixd
     ];
   };
+
+  programs.labwc.enable = true;
 
   programs.fish.enable = true;
 
