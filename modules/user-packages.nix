@@ -14,15 +14,12 @@
       spotify-player
       blender
       rclone
-      clang
       helix
       libresprite
       tiled
       swaybg
       luakit
       blockbench
-      wayland
-      wayland-scanner
       wayland-utils
       wl-clipboard
       cliphist
@@ -31,7 +28,6 @@
       swappy
       mako
       wev
-      libxkbcommon
       nixd
     ];
   };
