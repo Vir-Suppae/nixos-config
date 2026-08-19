@@ -1,4 +1,4 @@
-{inputs, ...}:
+{inputs, pkgs, ...}:
 {
   imports = [
     (inputs.wrappers.lib.getInstallModule { name = "wezterm"; value = inputs.wrappers.lib.wrapperModules.wezterm; })
@@ -27,4 +27,6 @@
     labwc.enable = true;
     fish.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [gtk3];
 }
