@@ -9,7 +9,7 @@
       fd
       bat
       gh
-      fuzzel
+      # fuzzel
       brightnessctl
       spotify-player
       blender
