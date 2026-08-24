@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}:
+{inputs, pkgs, config, ...}:
 let
   unipicker = pkgs.callPackage ../packages/unipicker/package.nix {
     fuzzel = config.wrappers.fuzzel.wrapper;
