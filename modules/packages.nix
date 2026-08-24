@@ -1,4 +1,9 @@
 {inputs, pkgs, ...}:
+let
+  unipicker = pkgs.callPackage ../packages/unipicker/package.nix {
+    fuzzel = config.wrappers.fuzzel.wrapper;
+  };
+in
 {
   imports = [
     (inputs.wrappers.lib.getInstallModule { name = "wezterm"; value = inputs.wrappers.lib.wrapperModules.wezterm; })
@@ -39,5 +44,5 @@
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [gtk3];
+  environment.systemPackages = with pkgs; [gtk3 unipicker];
 }

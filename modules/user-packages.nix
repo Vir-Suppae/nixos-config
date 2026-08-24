@@ -1,4 +1,4 @@
-{ pkgs, unipicker, ... }:
+{ pkgs, ... }:
 {
   users.users."vir-suppae" = {
     packages = with pkgs; [
@@ -29,7 +29,6 @@
       mako
       wev
       nixd
-      unipicker
     ];
   };
 }
