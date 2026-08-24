@@ -11,6 +11,10 @@
         nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
             specialArgs = {
                 inherit inputs;
+
+                unipicker = inputs.nixpkgs.legacyPackages.x86_64-linux.callPackage
+                    ./packages/unipicker/package.nix
+                    {};
             };
             modules = [
                 ./modules/conf.nix
