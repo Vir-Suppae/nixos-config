@@ -16,5 +16,8 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    openssh = {
+      enable = true;
+    };
   };
 }
