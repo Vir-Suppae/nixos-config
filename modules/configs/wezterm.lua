@@ -8,7 +8,7 @@ local hm_config = {
   ["initial_cols"] = 128,
   ["initial_rows"] = 43,
   ["use_fancy_tab_bar"] = false,
-  ["enable_kitty_keyboard"] = true,
+  -- ["enable_kitty_keyboard"] = true,
 }
 for k, v in pairs(hm_config) do
   config[k] = v

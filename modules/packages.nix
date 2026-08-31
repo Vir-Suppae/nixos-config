@@ -10,6 +10,7 @@ in
     (inputs.wrappers.lib.getInstallModule { name = "wrapped-git"; value = inputs.wrappers.lib.wrapperModules.git; })
     (inputs.wrappers.lib.getInstallModule { name = "opencode"; value = inputs.wrappers.lib.wrapperModules.opencode; })
     (inputs.wrappers.lib.getInstallModule { name = "fuzzel"; value = inputs.wrappers.lib.wrapperModules.fuzzel; })
+    (inputs.wrappers.lib.getInstallModule { name = "ghostty"; value = inputs.wrappers.lib.wrapperModules.ghostty; })
   ];
 
   wrappers = {
@@ -35,6 +36,19 @@ in
         border = {
           radius = 0;
         };
+      };
+    };
+    ghostty = {
+      enable = true;
+      settings = {
+        font-size = 9;
+        theme = "carbonfox";
+        selection-clear-on-copy = true;
+        cursor-style = "block_hollow";
+        command = "fish";
+        window-width = 128;
+        window-height = 40;
+        window-show-tab-bar = "always";
       };
     };
   };
