@@ -14,7 +14,7 @@
       spotify-player
       blender
       rclone
-      helix
+      # helix
       libresprite
       tiled
       swaybg

@@ -11,6 +11,8 @@ in
     (inputs.wrappers.lib.getInstallModule { name = "opencode"; value = inputs.wrappers.lib.wrapperModules.opencode; })
     (inputs.wrappers.lib.getInstallModule { name = "fuzzel"; value = inputs.wrappers.lib.wrapperModules.fuzzel; })
     (inputs.wrappers.lib.getInstallModule { name = "ghostty"; value = inputs.wrappers.lib.wrapperModules.ghostty; })
+    (inputs.wrappers.lib.getInstallModule { name = "kitty"; value = inputs.wrappers.lib.wrapperModules.kitty; })
+    (inputs.wrappers.lib.getInstallModule { name = "helix"; value = inputs.wrappers.lib.wrapperModules.helix; })
   ];
 
   wrappers = {
@@ -42,7 +44,7 @@ in
       enable = true;
       settings = {
         font-size = 9;
-        theme = "carbonfox";
+        theme = "Carbonfox";
         selection-clear-on-copy = true;
         cursor-style = "block_hollow";
         command = "fish";
@@ -50,6 +52,29 @@ in
         window-height = 40;
         window-show-tab-bar = "always";
       };
+    };
+    kitty = {
+      enable = true;
+      font.size = 9;
+      settings = {
+        cursor_shape = "underline";
+        cursor_trail = 1;
+        cursor_trail_start_threshold = 0;
+        cursor_trail_color = "#00ff00";
+        scrollback_lines = 500000;
+        remember_window_size = "no";
+        initial_window_width = "128c";
+        initial_window_height = "40c";
+        tab_bar_edge = "top";
+        tab_bar_style = "powerline";
+        tab_bar_min_tabs = 1;
+        tab_activity_symbol = "⌬";
+      };
+      themeFile = "Carbonfox";
+    };
+    helix = {
+      enable = true;
+      theme = "ao"; 
     };
   };
 
