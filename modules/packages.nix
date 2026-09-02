@@ -55,7 +55,10 @@ in
     };
     kitty = {
       enable = true;
-      font.size = 9;
+      font = {
+        name = "Hack Nerd Font";
+        size = 9;
+      };
       settings = {
         cursor_shape = "underline";
         cursor_trail = 1;
@@ -86,4 +89,6 @@ in
   };
 
   environment.systemPackages = with pkgs; [gtk3 unipicker];
+
+  fonts.packages = with pkgs; [ nerd-fonts.hack ];
 }
