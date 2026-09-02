@@ -60,7 +60,7 @@ in
         size = 9;
       };
       settings = {
-        cursor_shape = "underline";
+        cursor_shape = "block";
         cursor_trail = 1;
         cursor_trail_start_threshold = 0;
         scrollback_lines = 500000;
