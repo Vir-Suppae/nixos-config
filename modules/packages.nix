@@ -74,7 +74,9 @@ in
     };
     helix = {
       enable = true;
-      themes = "ao\n";
+      settings = {
+        theme = "carbonfox";
+      };
     };
   };
 
