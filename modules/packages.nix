@@ -13,6 +13,7 @@ in
     (inputs.wrappers.lib.getInstallModule { name = "ghostty"; value = inputs.wrappers.lib.wrapperModules.ghostty; })
     (inputs.wrappers.lib.getInstallModule { name = "kitty"; value = inputs.wrappers.lib.wrapperModules.kitty; })
     (inputs.wrappers.lib.getInstallModule { name = "helix"; value = inputs.wrappers.lib.wrapperModules.helix; })
+    (inputs.wrappers.lib.getInstallModule { name = "nushell"; value = inputs.wrappers.lib.wrapperModules.nushell; })
   ];
 
   wrappers = {
@@ -84,6 +85,9 @@ in
       settings = {
         theme = "carbonfox";
       };
+    };
+    nushell = {
+      enable = true;
     };
   };
 
