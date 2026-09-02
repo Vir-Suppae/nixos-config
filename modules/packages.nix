@@ -74,9 +74,7 @@ in
     };
     helix = {
       enable = true;
-      themes = ''
-        ao
-      ''; 
+      themes = "ao\n";
     };
   };
 
