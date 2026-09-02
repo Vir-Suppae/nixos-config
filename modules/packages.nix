@@ -63,7 +63,6 @@ in
         cursor_shape = "underline";
         cursor_trail = 1;
         cursor_trail_start_threshold = 0;
-        cursor_trail_color = "#00ff00";
         scrollback_lines = 500000;
         remember_window_size = "no";
         initial_window_width = "128c";
@@ -74,6 +73,9 @@ in
         tab_activity_symbol = "⌬";
       };
       themeFile = "Carbonfox";
+      extraConfig = pkgs.lib.concatStringsSep "\n" [
+        "modify_font cell_height 2px"
+      ];
     };
     helix = {
       enable = true;
