@@ -72,7 +72,7 @@ in
         tab_bar_style = "powerline";
         tab_bar_min_tabs = 1;
         tab_activity_symbol = "⌬";
-        shell = "/run/current-system/sw/bin/fish -C fastfetch";
+        shell = "/run/current-system/sw/bin/nu -e fastfetch";
         editor = "/run/current-system/sw/bin/hx";
       };
       themeFile = "Carbonfox";
