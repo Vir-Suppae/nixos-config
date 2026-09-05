@@ -28,6 +28,7 @@
       wev
       nixd
       inkscape
+      pinta
     ];
   };
 }
