@@ -9,12 +9,10 @@
       fd
       bat
       gh
-      # fuzzel
       brightnessctl
       spotify-player
       blender
       rclone
-      # helix
       libresprite
       tiled
       swaybg
@@ -29,6 +27,7 @@
       mako
       wev
       nixd
+      inkscape
     ];
   };
 }
