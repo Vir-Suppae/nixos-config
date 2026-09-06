@@ -29,6 +29,12 @@
       nixd
       inkscape
       pinta
+      luanti
+      imagemagick
+      fzf
+      btop
+      ffmpeg
+      _7zz
     ];
   };
 }
