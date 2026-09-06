@@ -20,6 +20,15 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  users.users."luanti" = {
+    isSystemUser = true;
+    group = "luanti";
+    home = "/var/lib/luanti";
+    createHome = true;
+  };
+
+  users.groups.luanti = {};
+
   system.stateVersion = "26.05";
 
 }

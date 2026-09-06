@@ -28,4 +28,16 @@
       };
     };
   };
+
+  systemd.services = {
+    luanti = {
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        User = "luanti";
+        WorkingDirectory = "/var/lib/luanti";
+        ExecStart = "luantiserver";
+      };
+    };
+  };
 }

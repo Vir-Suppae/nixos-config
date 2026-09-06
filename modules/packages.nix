@@ -96,7 +96,7 @@ in
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [gtk3 unipicker];
+  environment.systemPackages = with pkgs; [gtk3 unipicker luanti-server];
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
 }

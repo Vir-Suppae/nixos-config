@@ -29,7 +29,6 @@
       nixd
       inkscape
       pinta
-      luanti
       imagemagick
       fzf
       btop
