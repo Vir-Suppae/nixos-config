@@ -39,7 +39,7 @@
         WorkingDirectory = "/var/lib/luanti";
         Environment = "MINETEST_GAME_PATH=/var/lib/luanti/games";
 
-        ExecStart = "${pkgs.luantiserver}/bin/luantiserver --config /var/lib/luanti/server.conf --world /var/lib/luanti/world";
+        ExecStart = "${pkgs.luanti-server}/bin/luantiserver --config /var/lib/luanti/server.conf --world /var/lib/luanti/world";
       };
     };
   };
