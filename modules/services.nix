@@ -36,7 +36,7 @@
       serviceConfig = {
         User = "luanti";
         WorkingDirectory = "/var/lib/luanti";
-        ExecStart = "luantiserver";
+        ExecStart = "luantiserver --config /var/lib/luanti/server.conf --world /var/lib/luanti/world";
       };
     };
   };
