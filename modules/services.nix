@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services = {
     logind.settings.Login.HandleLidSwitch = "ignore";
@@ -36,7 +37,9 @@
       serviceConfig = {
         User = "luanti";
         WorkingDirectory = "/var/lib/luanti";
-        ExecStart = "luantiserver --config /var/lib/luanti/server.conf --world /var/lib/luanti/world";
+        Environment = "MINETEST_GAME_PATH=/var/lib/luanti/games";
+
+        ExecStart = "${pkgs.luantiserver}/bin/luantiserver --config /var/lib/luanti/server.conf --world /var/lib/luanti/world";
       };
     };
   };
