@@ -1,2 +1,2 @@
-{writeLua}: 
-writeLua "luattyss" {} (builtins.readFile ./src.lua)
+{writeLuaBin}: 
+writeLuaBin "luattyss" {} (builtins.readFile ./src.lua)

@@ -4,7 +4,7 @@ let
     fuzzel = config.wrappers.fuzzel.wrapper;
   };
   luattyss = pkgs.callPackage ../packages/luattyss/package.nix {
-    writeLua = pkgs.writers.writeLua;
+    writeLuaBin = pkgs.writers.writeLuaBin;
   };
 in
 {
