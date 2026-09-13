@@ -12,13 +12,9 @@
             specialArgs = {
                 inherit inputs;
 
-                unipicker = inputs.nixpkgs.legacyPackages.x86_64-linux.callPackage
-                    ./packages/unipicker/package.nix
-                    {};
-
-                luattyss = inputs.nixpkgs.legacyPackages.x86_64-linux.callPackage
-                    ./packages/luattyss/package.nix
-                    {};
+                # unipicker = inputs.nixpkgs.legacyPackages.x86_64-linux.callPackage
+                #     ./packages/unipicker/package.nix
+                #     {};
             };
             modules = [
                 ./modules/conf.nix
