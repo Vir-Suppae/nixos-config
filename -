@@ -1,0 +1,48 @@
+       . while evaluating the attribute 'value'
+         at ®github:nixos/nixpkgs/56c02bc00adcf003215cc4bd996d6efaf4cff188?narHash=sha256-9i/VTdusq/%2BNM/tz%2BJ1Re%2BojkMB8MBf0QshnYfzHz30%3D¯/lib/modules.nix:1149:7:
+         1148|     // {
+         1149|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+         1150|       inherit (res.defsFinal') highestPrio;
+
+       . while evaluating the option `system.build.toplevel':
+
+       . while evaluating definitions from `/nix/store/z4wkdlk69gck09s64a8ghpn6h7bxhkyy-source/nixos/modules/system/activation/top-level.nix':
+
+       . while evaluating the option `warnings':
+
+       . while evaluating definitions from `/nix/store/z4wkdlk69gck09s64a8ghpn6h7bxhkyy-source/nixos/modules/system/boot/systemd.nix':
+
+       . while evaluating the option `systemd.services.mandb.serviceConfig':
+
+       . while evaluating definitions from `/nix/store/z4wkdlk69gck09s64a8ghpn6h7bxhkyy-source/nixos/modules/system/boot/systemd.nix':
+
+       . while evaluating the option `systemd.services.mandb.script':
+
+       . while evaluating definitions from `/nix/store/z4wkdlk69gck09s64a8ghpn6h7bxhkyy-source/nixos/modules/misc/man-db.nix':
+
+       . while evaluating the option `documentation.man.man-db.manualPages':
+
+       . while evaluating the option `environment.systemPackages':
+
+       . while evaluating definitions from `/nix/store/x6whplq2bj6ivj8pwv6y3spa1738pgzd-source/modules/packages.nix':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "writeLua" at /nix/store/
+x6whplq2bj6ivj8pwv6y3spa1738pgzd-source/packages/luattyss/package.nix:1'
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '.#nixosConfigurations."nixos".config.system.build.toplevel' --no-link' returned n
+on-zero exit status 1.
+
+[vir-suppae@nixos:~/nixos-config]$ cat /dev/
+Display all 187 possibilities? (y or n)
+
+[vir-suppae@nixos:~/nixos-config]$ setterm --dump=2 --file - | wl-copy
+setterm: cannot read /dev/vcsa2: Permission denied
+
+[vir-suppae@nixos:~/nixos-config]$ sudo setterm --dump=2 --file - | wl-copy
+
+[vir-suppae@nixos:~/nixos-config]$ hx ./modules/packages.nix
+
+[vir-suppae@nixos:~/nixos-config]$ sudo setterm --dump=2 --file - | wl-copy
+
