@@ -3,6 +3,7 @@ let
   unipicker = pkgs.callPackage ../packages/unipicker/package.nix {
     fuzzel = config.wrappers.fuzzel.wrapper;
   };
+  luattyss = pkgs.callPackage ../packages/luattyss/package.nix {};
 in
 {
   imports = [
@@ -96,7 +97,7 @@ in
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [gtk3 unipicker luanti-server];
+  environment.systemPackages = with pkgs; [gtk3 unipicker luattyss luanti-server];
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
 }
