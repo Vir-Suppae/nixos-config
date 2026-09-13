@@ -1,6 +1,4 @@
 {writeLua}: 
-writeLua {
-  name = "luattyss";
-
+writeLua "luattyss" {
   text = builtins.readFile ./src.lua;
 }
