@@ -28,6 +28,7 @@
         addresses = true;
       };
     };
+    dbus.enable = true;
   };
 
   systemd.services = {
