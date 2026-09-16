@@ -1,2 +1,2 @@
-{writeLuaBin}: 
-writeLuaBin "luattyss" {} (builtins.readFile ./src.lua)
+{writeLuaBin, pkgs, ...}: 
+writeLuaBin "luattyss" {libraries = [pkgs.luaPackages.luaposix]} (builtins.readFile ./src.lua)
