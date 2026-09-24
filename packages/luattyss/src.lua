@@ -15,7 +15,7 @@ while true do
     end
     io["flush"]()
     if posix["rpoll"](0, 0) == 1 then
-        _  = io["stdin"]["read"](io["stdin"], 1)
+        local _  = io["stdin"]["read"](io["stdin"], 1)
         break
     end
 end
