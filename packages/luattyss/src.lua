@@ -5,20 +5,46 @@ local chars = {
     "\u{2593}",
     "\u{2592}",
     "\u{2591}",
-    "\u{0020}",
+}
+
+local fg_colors = {
+    "\x1b[30m",
+    "\x1b[31m",
+    "\x1b[32m",
+    "\x1b[33m",
+    "\x1b[34m",
+    "\x1b[35m",
+    "\x1b[36m",
+    "\x1b[37m",
+    "\x1b[39m",
+}
+
+local bg_colors = {
+    "\x1b[40m",
+    "\x1b[41m",
+    "\x1b[42m",
+    "\x1b[43m",
+    "\x1b[44m",
+    "\x1b[45m",
+    "\x1b[46m",
+    "\x1b[47m",
+    "\x1b[49m",
 }
 
 os["execute"]"stty -icanon -echo"
 io["write"]"\x1b[?25l"
 io["flush"]()
 
-math["randomseed"](0)
+math["randomseed"]()
 
 while true do
-    io["write"]"\x1b[H"
+    local buffer = {}
+    buffer[#buffer + 1] = "\x1b[H"
     for _ = 1,(170*48) do
-        io["write"](chars[math.random(1,#chars)])
+        buffer[#buffer + 1] = fg_colors[math.random(1,#fg_colors)] .. bg_colors[math.random(1,#bg_colors)] .. chars[math.random(1,#chars)] 
     end
+    buffer[#buffer + 1] = "\x1b[0m"
+    io["write"](table.concat(buffer))
     io["flush"]()
     if posix["rpoll"](0, 0) == 1 then
         local _  = io["stdin"]["read"](io["stdin"], 1)
