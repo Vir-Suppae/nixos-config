@@ -29,7 +29,7 @@ while true do
     buffer[#buffer + 1] = "\x1b[0m"
     io["write"](table.concat(buffer))
     io["flush"]()
-    if posix["rpoll"](0, 0) == 1 then
+    if posix["rpoll"](0, 5000) == 1 then
         local _  = io["stdin"]["read"](io["stdin"], 1)
         break
     end
