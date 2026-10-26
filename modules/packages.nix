@@ -3,6 +3,9 @@ let
   unipicker = pkgs.callPackage ../packages/unipicker/package.nix {
     fuzzel = config.wrappers.fuzzel.wrapper;
   };
+  scrap = pkgs.callPackage ../packages/scrap/package.nix {
+    fuzzel = config.wrappers.fuzzel.wrapper;
+  };
   luattyss = pkgs.callPackage ../packages/luattyss/package.nix {
     pkgs = pkgs;
   };
@@ -77,6 +80,7 @@ in
         tab_activity_symbol = "⌬";
         shell = "/run/current-system/sw/bin/nu -e fastfetch";
         editor = "/run/current-system/sw/bin/hx";
+        allow_remote_control = "yes";
       };
       themeFile = "Carbonfox";
       extraConfig = pkgs.lib.concatStringsSep "\n" [
@@ -99,7 +103,7 @@ in
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [gtk3 unipicker luattyss luanti-server];
+  environment.systemPackages = with pkgs; [gtk3 unipicker luattyss scrap luanti-server];
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
 }
