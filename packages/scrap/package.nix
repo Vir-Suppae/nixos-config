@@ -14,7 +14,7 @@ pkgs.writeTextFile {
         ["-g" $rect.stdout]
       } else {[]}
       let filename = $"~/Pictures/Screenshots/(${fuzzel}/bin/fuzzel -d --prompt-only="name: " --search=$"screenshot.(date now | format date '%Y-%m-%d.%H-%M-%S').png" -w 64 --font "monospace:size=9")"
-      ${pkgs.grim}/bin/grim ($filename | path expand) ...$geo
+      ${pkgs.grim}/bin/grim ...$geo ($filename | path expand)
     }
   '';
   executable = true;
