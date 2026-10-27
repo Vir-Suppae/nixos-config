@@ -11,7 +11,9 @@ pkgs.writeTextFile {
         if $rect.exit_code != 0 {
           return
         }
-        ["-g" $rect.stdout]
+        let flag = ["-g" $rect.stdout]
+        print ...$flag
+        $flag
       } else {[]}
       let filename = $"~/Pictures/Screenshots/(${fuzzel}/bin/fuzzel -d --prompt-only="name: " --search=$"screenshot.(date now | format date '%Y-%m-%d.%H-%M-%S').png" -w 64 --font "monospace:size=9")"
       ${pkgs.grim}/bin/grim ...$geo ($filename | path expand)
