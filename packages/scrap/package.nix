@@ -5,12 +5,17 @@ pkgs.writeTextFile {
   inherit name;
   text = ''
     #!${pkgs.nushell}/bin/nu
-    let rect = slurp
-    if $env.LAST_EXIT_CODE != 0 {
-      return
+    def main [do_slurp: bool = true] {
+      let geo = if $do_slurp {
+        let rect = (${pkgs.slurp}/bin/slurp | complete)
+        if rect.exit_code != 0 {
+          return
+        }
+        ["-g" $rect.stdout]
+      } else {[]}
+      let filename = $"~/Pictures/Screenshots/(${fuzzel}/bin/fuzzel -d --prompt-only="name: " --search=$"screenshot.(date now | format date '%Y-%m-%d.%H-%M-%S').png" -w 64 --font "monospace:size=9")"
+      ${pkgs.grim}/bin/grim ($filename | path expand) ...$geo
     }
-    let filename = ${fuzzel}/bin/fuzzel -d --prompt-only="name: " --search=$"screenshot.(date now | format date '%Y-%m-%d.%H-%M-%S').png" -w 64 --font "monospace:size=9"
-    grim -g $rect $filename
   '';
   executable = true;
   destination = "/bin/${name}";
