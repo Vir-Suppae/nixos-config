@@ -2,13 +2,12 @@ local posix = require"posix"
 
 local chars = {
     "\u{0020}",
-    "\u{2593}",
-    "\u{2592}",
+    "\u{2588}",
     "\u{2591}",
 }
 
-local fg_colors = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
-local bg_colors = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
+local fg_colors = {2,6,7}
+local bg_colors = {0}
 
 os["execute"]"stty -icanon -echo"
 io["write"]"\x1b[?25l"
