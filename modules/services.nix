@@ -21,10 +21,10 @@
       enable = true;
     };
     avahi = {
-      disable-publishing = false;
+      enable = true;
       nssmdns4 = true;
       publish = {
-        enable = true;
+        disable-publishing = false;
         publish-addresses = true;
       };
     };
