@@ -21,11 +21,11 @@
       enable = true;
     };
     avahi = {
-      enable = true;
+      disable-publishing = false;
       nssmdns4 = true;
       publish = {
         enable = true;
-        addresses = true;
+        publish-addresses = true;
       };
     };
     dbus.enable = true;
