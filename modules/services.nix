@@ -24,7 +24,7 @@
       enable = true;
       nssmdns4 = true;
       publish = {
-        disable-publishing = false;
+        enable = true;
         publish-addresses = true;
       };
     };
