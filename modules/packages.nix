@@ -98,6 +98,8 @@ in
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   programs = {
     labwc.enable = true;
     fish.enable = true;
