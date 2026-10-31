@@ -34,7 +34,6 @@
       btop
       ffmpeg
       _7zz
-      android-studio
     ];
   };
 }
