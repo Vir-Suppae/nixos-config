@@ -18,6 +18,6 @@
         };
         packages = builtins.mapAttrs (system: pkgs: {
             luattyss = pkgs.callPackage ./packages/luattyss/package.nix {};
-        }) inputs.nixpgs.legacyPackages;
+        }) inputs.nixpkgs.legacyPackages;
     };
 }
