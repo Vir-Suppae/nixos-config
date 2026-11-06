@@ -24,12 +24,11 @@ for _ = 1,(170*48) do
 end
 
 while true do
-    for _ = 1,170 do
-        table["insert"](buffer, 1,
-            "\x1b[38;5;"..fg_colors[math["random"](1,#fg_colors)].."m"..
-            "\x1b[48;5;"..bg_colors[math["random"](1,#bg_colors)].."m"..
-            chars[math["random"](1,#chars)])
-        table["remove"](buffer)
+    for _ = 1,170*24 do
+        buffer[math["random"](1,#buffer)]=
+        "\x1b[38;5;"..fg_colors[math["random"](1,#fg_colors)].."m"..
+        "\x1b[48;5;"..bg_colors[math["random"](1,#bg_colors)].."m"..
+        chars[math["random"](1,#chars)]
     end   
     io["write"]("\x1b[H"..table["concat"](buffer).."\x1b[0m")
     io["flush"]()
