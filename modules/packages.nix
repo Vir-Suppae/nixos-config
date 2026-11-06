@@ -6,9 +6,9 @@ let
   scrap = pkgs.callPackage ../packages/scrap/package.nix {
     fuzzel = config.wrappers.fuzzel.wrapper;
   };
-  luattyss = pkgs.callPackage ../packages/luattyss/package.nix {
-    pkgs = pkgs;
-  };
+  # luattyss = pkgs.callPackage ../packages/luattyss/package.nix {
+  #   pkgs = pkgs;
+  # };
 in
 {
   imports = [
@@ -103,7 +103,13 @@ in
     fish.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [gtk3 unipicker luattyss scrap luanti-server];
+  environment.systemPackages = with pkgs; [
+    gtk3
+    unipicker
+    inputs.self.packages.${pkgs.system}.luattyss
+    scrap
+    luanti-server
+  ];
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
 }
