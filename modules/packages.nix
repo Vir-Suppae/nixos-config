@@ -95,7 +95,7 @@ in
   environment.systemPackages = with pkgs; [
     gtk3
     unipicker
-    inputs.self.packages.${pkgs.system}.luattyss
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.luattyss
     scrap
     luanti-server
   ];
