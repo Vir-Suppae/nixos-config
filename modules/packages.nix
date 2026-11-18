@@ -79,7 +79,7 @@ in
   programs = {
     labwc = {
       package = inputs.wrappers.lib.wrapPackage (
-          { pkgs, ... }: {
+          { ... }: {
             inherit pkgs;
 
             package = pkgs.labwc;
