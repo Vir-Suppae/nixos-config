@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <keyboard>
+
+    <keybind>
+      <key>W-S-e</key>
+      <action>
+        <name>Exit</name>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-r</key>
+      <action>
+        <name>Reconfigure</name>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-S-m</key>
+      <action>
+        <name>Iconify</name>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-Space</key>
+      <action>
+        <name>ShowMenu</name>
+        <menu>client-menu</menu>
+        <atCursor>no</atCursor>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-Tab</key>
+      <action>
+        <name>NextWindow</name>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-S-Tab</key>
+      <action>
+        <name>PreviousWindow</name>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-A-Space</key>
+      <action>
+        <name>ShowMenu</name>
+        <menu>root-menu</menu>
+        <atCursor>yes</atCursor>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-t</key>
+      <action>
+        <name>Execute</name>
+        <command>kitty</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-q</key>
+      <action>
+        <name>Close</name>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>XF86AudioRaiseVolume</key>
+      <action>
+        <name>Execute</name>
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>XF86AudioLowerVolume</key>
+      <action>
+        <name>Execute</name>
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>XF86AudioMute</key>
+      <action>
+        <name>Execute</name>
+        <command>wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-d</key>
+      <action>
+        <name>Execute</name>
+        <command>fuzzel</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-u</key>
+      <action>
+        <name>Execute</name>
+        <command>unipicker</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>XF86MonBrightnessUp</key>
+      <action>
+        <name>Execute</name>
+        <command>brightnessctl --class=backlight set +10%</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>XF86MonBrightnessDown</key>
+      <action>
+        <name>Execute</name>
+        <command>brightnessctl --class=backlight set 10%-</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>Print</key>
+      <action>
+        <name>Execute</name>
+        <command>scrap true</command>
+      </action>
+    </keybind>
+
+    <keybind>
+      <key>W-Print</key>
+      <action>
+        <name>Execute</name>
+        <command>scrap false</command>
+      </action>
+    </keybind>
+
+  </keyboard>
+  <theme>
+    <name>virstheme</name>
+  </theme>
+</labwc_config>

@@ -6,27 +6,18 @@ let
   scrap = pkgs.callPackage ../packages/scrap/package.nix {
     fuzzel = config.wrappers.fuzzel.wrapper;
   };
-  # luattyss = pkgs.callPackage ../packages/luattyss/package.nix {
-  #   pkgs = pkgs;
-  # };
 in
 {
   imports = [
-    (inputs.wrappers.lib.getInstallModule { name = "wezterm"; value = inputs.wrappers.lib.wrapperModules.wezterm; })
     (inputs.wrappers.lib.getInstallModule { name = "wrapped-git"; value = inputs.wrappers.lib.wrapperModules.git; })
     (inputs.wrappers.lib.getInstallModule { name = "opencode"; value = inputs.wrappers.lib.wrapperModules.opencode; })
     (inputs.wrappers.lib.getInstallModule { name = "fuzzel"; value = inputs.wrappers.lib.wrapperModules.fuzzel; })
-    (inputs.wrappers.lib.getInstallModule { name = "ghostty"; value = inputs.wrappers.lib.wrapperModules.ghostty; })
     (inputs.wrappers.lib.getInstallModule { name = "kitty"; value = inputs.wrappers.lib.wrapperModules.kitty; })
     (inputs.wrappers.lib.getInstallModule { name = "helix"; value = inputs.wrappers.lib.wrapperModules.helix; })
     (inputs.wrappers.lib.getInstallModule { name = "nushell"; value = inputs.wrappers.lib.wrapperModules.nushell; })
   ];
 
   wrappers = {
-    wezterm = {
-      enable = true;
-      "wezterm.lua".path = ./configs/wezterm.lua;
-    };
     wrapped-git = {
       enable = true;
       configFile.path = ./configs/git.ini;
@@ -45,19 +36,6 @@ in
         border = {
           radius = 0;
         };
-      };
-    };
-    ghostty = {
-      enable = true;
-      settings = {
-        font-size = 9;
-        theme = "Carbonfox";
-        selection-clear-on-copy = true;
-        cursor-style = "block_hollow";
-        command = "fish";
-        window-width = 128;
-        window-height = 40;
-        window-show-tab-bar = "always";
       };
     };
     kitty = {
@@ -99,8 +77,19 @@ in
   };
 
   programs = {
-    labwc.enable = true;
-    fish.enable = true;
+    labwc = {
+      package = inputs.wrappers.lib.wrapPackage (
+          { pkgs, ... }: {
+            inherit pkgs;
+
+            package = pkgs.labwc;
+
+            flags = {
+              "-C" = "${./configs/labwc}";
+            };
+          });
+      enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [

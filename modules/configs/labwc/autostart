@@ -1,0 +1,2 @@
+systemctl --user --no-block start labwc-session.target
+swaybg -c 88aaee -i ~/Pictures/wp.png
